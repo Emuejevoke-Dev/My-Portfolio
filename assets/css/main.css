@@ -140,13 +140,20 @@ h6 {
   --heading-color: #ffffff;
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 15px 0;
+  padding: 18px 0 14px;
   transition: all 0.5s;
   z-index: 997;
 }
 
+.header .container-fluid {
+  gap: 1.5rem;
+  padding-right: 3rem;
+  padding-left: 3rem;
+}
+
 .header .logo {
   line-height: 1;
+  margin-top: 0.35rem;
 }
 
 .header .logo img {
@@ -272,6 +279,9 @@ h6 {
 @media (min-width: 1200px) {
   .navmenu {
     padding: 0;
+    margin-top: 0.15rem;
+    margin-left: 0.75rem;
+    width: auto;
   }
 
   .navmenu ul {
@@ -280,6 +290,7 @@ h6 {
     display: flex;
     list-style: none;
     align-items: center;
+    gap: 0.1rem;
   }
 
   .navmenu li {
@@ -289,13 +300,15 @@ h6 {
   .navmenu a,
   .navmenu a:focus {
     color: var(--nav-color);
-    padding: 18px 15px;
+    padding: 0.7rem 1.15rem;
     font-size: 16px;
     font-family: var(--nav-font);
     font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
     white-space: nowrap;
     transition: 0.3s;
   }
@@ -309,7 +322,7 @@ h6 {
   }
 
   .navmenu li:last-child a {
-    padding-right: 0;
+    padding-right: 1.1rem;
   }
 
   .navmenu li:hover>a,
@@ -377,18 +390,19 @@ h6 {
 
 /* Navmenu - Mobile */
 @media (max-width: 1199px) {
-  .mobile-nav-toggle {
-    display: inline-flex !important;
-    color: var(--nav-color);
-    font-size: 28px;
-    line-height: 0;
-    margin-right: 10px;
-    cursor: pointer;
-    transition: color 0.3s;
+  .header .container-fluid {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .header .logo {
+    width: auto;
   }
 
   .navmenu {
     position: relative;
+    width: 100%;
+    margin-top: 12px;
     padding: 0;
     z-index: 9997;
   }
@@ -396,42 +410,60 @@ h6 {
   .navmenu ul {
     display: none;
     list-style: none;
-    position: absolute;
-    top: calc(100% + 12px);
-    right: 0;
-    left: 0;
-    padding: 10px 0;
+    width: 100%;
     margin: 0;
-    border-radius: 12px;
-    background: var(--nav-mobile-background-color);
-    overflow-y: auto;
-    z-index: 9998;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+    padding: 12px 0 0;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    position: static;
   }
 
   .navmenu.mobile-open ul {
     display: block;
   }
 
+  .navmenu li {
+    width: 100%;
+    display: block;
+  }
+
   .navmenu a,
   .navmenu a:focus {
     color: var(--nav-dropdown-color);
-    padding: 12px 20px;
+    padding: 10px 0;
     font-family: var(--nav-font);
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 500;
     display: flex;
-    width: 100%;
     align-items: center;
-    justify-content: space-between;
-    white-space: nowrap;
+    justify-content: flex-start;
+    width: 100%;
+    line-height: 1.6;
+    white-space: normal;
+    letter-spacing: 0.02em;
     transition: 0.3s;
+  }
+
+  .navmenu a i,
+  .navmenu a:focus i {
+    display: none;
   }
 
   .navmenu a:hover,
   .navmenu .active,
   .navmenu .active:focus {
     color: var(--nav-dropdown-hover-color);
+  }
+
+  .mobile-nav-toggle {
+    display: inline-flex !important;
+    margin-left: auto;
+    color: var(--nav-color);
+    font-size: 28px;
+    line-height: 0;
+    cursor: pointer;
+    transition: color 0.3s;
   }
 
   .mobile-nav-active {
@@ -684,12 +716,16 @@ h6 {
 /*--------------------------------------------------------------
 # Global Sections
 --------------------------------------------------------------*/
+.main {
+  padding-top: 110px;
+}
+
 section,
 .section {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 60px 0;
-  scroll-margin-top: 90px;
+  padding: 82px 0 64px;
+  scroll-margin-top: 110px;
   overflow: clip;
 }
 
@@ -697,30 +733,38 @@ section,
 
   section,
   .section {
-    scroll-margin-top: 66px;
+    scroll-margin-top: 82px;
   }
 }
 
 @media (max-width: 768px) {
   section,
   .section {
-    padding: 40px 0;
+    padding: 58px 0 42px;
   }
 }
 
 @media (max-width: 480px) {
   section,
   .section {
-    padding: 30px 0;
+    padding: 48px 0 32px;
   }
 }
 
-/*--------------------------------------------------------------
-# Global Section Titles
---------------------------------------------------------------*/
 .section-title {
   text-align: center;
-  padding-bottom: 60px;
+  padding-bottom: 42px;
+  position: relative;
+}
+
+.section-title .subtitle {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
   position: relative;
 }
 
@@ -737,15 +781,6 @@ section,
   .section-title h2 {
     font-size: 2.5rem;
   }
-}
-  display: inline-block;
-  font-size: 0.875rem;
-  font-weight: 400;
-  color: var(--accent-color);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 1.5rem;
-  position: relative;
 }
 
 .section-title .subtitle::after {
@@ -772,7 +807,7 @@ section,
 # Hero Section
 --------------------------------------------------------------*/
 .hero {
-  padding-top: 80px;
+  padding-top: 72px;
   min-height: 100vh;
   position: relative;
   display: flex;
