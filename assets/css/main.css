@@ -502,6 +502,57 @@ h6 {
   }
 }
 
+/* Mobile navigation toggle button */
+.mobile-nav-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--nav-color);
+  font-size: 28px;
+  line-height: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.mobile-nav-toggle:hover,
+.mobile-nav-toggle:focus {
+  color: var(--nav-hover-color);
+  border-color: var(--nav-hover-color);
+  background: rgba(255, 77, 79, 0.08);
+  outline: none;
+}
+
+.mobile-nav-toggle i {
+  font-size: 28px;
+}
+
+@media (max-width: 1199px) {
+  .mobile-nav-toggle {
+    display: inline-flex !important;
+  }
+
+  .navmenu ul {
+    display: none;
+  }
+
+  .mobile-nav-active .navmenu ul {
+    display: block;
+  }
+}
+
+@media (min-width: 1200px) {
+  .mobile-nav-toggle {
+    display: none !important;
+  }
+}
+
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
