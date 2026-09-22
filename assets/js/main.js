@@ -11,7 +11,8 @@
   function toggleMobileMenu() {
     if (!navMenu || !mobileNavToggleBtn) return;
 
-    const isOpen = document.body.classList.toggle('mobile-nav-active');
+    navMenu.classList.toggle('mobile-open');
+    const isOpen = navMenu.classList.contains('mobile-open');
     mobileNavToggleBtn.setAttribute('aria-expanded', String(isOpen));
 
     const icon = mobileNavToggleBtn.querySelector('i');
@@ -25,29 +26,27 @@
     mobileNavToggleBtn.addEventListener('click', toggleMobileMenu);
   }
 
-  /**
-   * Hide mobile nav on same-page/hash links
-   */
-  navMenuLinks.forEach(navmenu => {
-    navmenu.addEventListener('click', () => {
-      if (document.body.classList.contains('mobile-nav-active')) {
-        toggleMobileMenu();
+  navMenuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 1199 && navMenu) {
+        navMenu.classList.remove('mobile-open');
+        const icon = mobileNavToggleBtn.querySelector('i');
+        if (icon) {
+          icon.classList.remove('bi-x');
+          icon.classList.add('bi-list');
+        }
       }
     });
   });
 
-  /**
-   * Close mobile menu on resize to desktop
-   */
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 1199 && document.body.classList.contains('mobile-nav-active')) {
-      document.body.classList.remove('mobile-nav-active');
+    if (window.innerWidth > 1199 && navMenu) {
+      navMenu.classList.remove('mobile-open');
       if (mobileNavToggleBtn) {
-        mobileNavToggleBtn.setAttribute('aria-expanded', 'false');
         const icon = mobileNavToggleBtn.querySelector('i');
         if (icon) {
-          icon.classList.add('bi-list');
           icon.classList.remove('bi-x');
+          icon.classList.add('bi-list');
         }
       }
     }
@@ -157,7 +156,7 @@
       } else {
         navmenulink.classList.remove('active');
       }
-    })
+    });
   }
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
