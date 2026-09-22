@@ -387,6 +387,7 @@ h6 {
   }
 
   .navmenu {
+    position: relative;
     padding: 0;
     z-index: 9997;
   }
@@ -395,10 +396,12 @@ h6 {
     display: none;
     list-style: none;
     position: absolute;
-    inset: 60px 20px 20px 20px;
+    top: calc(100% + 12px);
+    right: 0;
+    left: 0;
     padding: 10px 0;
     margin: 0;
-    border-radius: 6px;
+    border-radius: 12px;
     background-color: var(--nav-mobile-background-color);
     overflow-y: auto;
     transition: 0.3s;
@@ -406,14 +409,19 @@ h6 {
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
   }
 
+  .navmenu li {
+    width: 100%;
+  }
+
   .navmenu a,
   .navmenu a:focus {
     color: var(--nav-dropdown-color);
-    padding: 10px 20px;
+    padding: 12px 20px;
     font-family: var(--nav-font);
     font-size: 17px;
     font-weight: 500;
     display: flex;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
     white-space: nowrap;
