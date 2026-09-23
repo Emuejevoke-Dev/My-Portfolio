@@ -139,9 +139,13 @@ h6 {
 .header {
   --heading-color: #ffffff;
   color: var(--default-color);
-  background-color: var(--background-color);
-  padding: 18px 0 14px;
-  transition: all 0.5s;
+  background-color: rgba(10, 10, 12, 0.96);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  padding: 18px 0 16px;
+  transition: all 0.5s ease;
   z-index: 997;
 }
 
@@ -149,6 +153,7 @@ h6 {
   gap: 1.5rem;
   padding-right: 3rem;
   padding-left: 3rem;
+  justify-content: space-between;
 }
 
 .header .logo {
@@ -257,19 +262,22 @@ h6 {
 /* Global Header on Scroll
 ------------------------------*/
 .scrolled .header {
-  --background-color: rgba(20, 20, 20, 0.8);
+  --background-color: rgba(10, 10, 12, 0.98);
+  background-color: rgba(10, 10, 12, 0.98);
 }
 
 /* Index Page Header
 ------------------------------*/
 .index-page .header {
-  --background-color: rgba(255, 255, 255, 0);
+  --background-color: rgba(10, 10, 12, 0.96);
+  background-color: rgba(10, 10, 12, 0.96);
 }
 
 /* Index Page Header on Scroll
 ------------------------------*/
 .index-page.scrolled .header {
-  --background-color: rgba(20, 20, 20, 0.8);
+  --background-color: rgba(10, 10, 12, 0.98);
+  background-color: rgba(10, 10, 12, 0.98);
 }
 
 /*--------------------------------------------------------------
@@ -278,10 +286,14 @@ h6 {
 /* Navmenu - Desktop */
 @media (min-width: 1200px) {
   .navmenu {
-    padding: 0;
+    margin-left: auto;
     margin-top: 0.15rem;
-    margin-left: 0.75rem;
     width: auto;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 999px;
+    padding: 0.15rem 0.45rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
   }
 
   .navmenu ul {
@@ -293,15 +305,11 @@ h6 {
     gap: 0.1rem;
   }
 
-  .navmenu li {
-    position: relative;
-  }
-
   .navmenu a,
   .navmenu a:focus {
     color: var(--nav-color);
-    padding: 0.7rem 1.15rem;
-    font-size: 16px;
+    padding: 0.72rem 1.1rem;
+    font-size: 15px;
     font-family: var(--nav-font);
     font-weight: 600;
     display: flex;
@@ -310,81 +318,19 @@ h6 {
     line-height: 1.4;
     letter-spacing: 0.04em;
     white-space: nowrap;
-    transition: 0.3s;
-  }
-
-  .navmenu a i,
-  .navmenu a:focus i {
-    font-size: 12px;
-    line-height: 0;
-    margin-left: 5px;
-    transition: 0.3s;
+    transition: 0.3s ease;
+    border-radius: 999px;
   }
 
   .navmenu li:last-child a {
-    padding-right: 1.1rem;
+    padding-right: 1rem;
   }
 
   .navmenu li:hover>a,
   .navmenu .active,
   .navmenu .active:focus {
     color: var(--nav-hover-color);
-  }
-
-  .navmenu .dropdown ul {
-    margin: 0;
-    padding: 10px 0;
-    background: var(--nav-dropdown-background-color);
-    display: block;
-    position: absolute;
-    visibility: hidden;
-    left: 14px;
-    top: 130%;
-    opacity: 0;
-    transition: 0.3s;
-    border-radius: 4px;
-    z-index: 99;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
-  }
-
-  .navmenu .dropdown ul li {
-    min-width: 200px;
-  }
-
-  .navmenu .dropdown ul a {
-    padding: 10px 20px;
-    font-size: 15px;
-    text-transform: none;
-    color: var(--nav-dropdown-color);
-  }
-
-  .navmenu .dropdown ul a i {
-    font-size: 12px;
-  }
-
-  .navmenu .dropdown ul a:hover,
-  .navmenu .dropdown ul .active:hover,
-  .navmenu .dropdown ul li:hover>a {
-    color: var(--nav-dropdown-hover-color);
-  }
-
-  .navmenu .dropdown:hover>ul {
-    opacity: 1;
-    top: 100%;
-    visibility: visible;
-  }
-
-  .navmenu .dropdown .dropdown ul {
-    top: 0;
-    left: -90%;
-    visibility: hidden;
-  }
-
-  .navmenu .dropdown .dropdown:hover>ul {
-    opacity: 1;
-    top: 0;
-    left: -100%;
-    visibility: visible;
+    background: rgba(255, 77, 79, 0.08);
   }
 }
 
